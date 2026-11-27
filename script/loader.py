@@ -2,6 +2,7 @@
 import json
 import sys
 from pathlib import Path
+from xml.parsers.expat import model
 
 
 def network_preview(data):
@@ -160,6 +161,43 @@ def validate_data_flow_hosts(data):
     print("\nData flow endpoint validation successful!")
     print(f"Validated data flows: {len(data_flows)}")
 
+
+def validate_trust_relations(data):
+    """Check that trust relations reference existing hosts."""
+
+    network = data["network"]
+
+    hosts = network["hosts"]
+    trust_relations = network["trust_relations"]
+
+    host_ids = {host["id"] for host in hosts}
+
+    for relation in trust_relations:
+
+        source = relation.get("from_host")
+        destination = relation.get("to_host")
+
+        if not source or not destination:
+            raise ValueError(
+                f"Trust relation {relation.get('id', 'unknown')} "
+                "is missing from_host or to_host."
+            )
+
+        if source not in host_ids:
+            raise ValueError(
+                f"Unknown source host in trust relation: {source}"
+            )
+
+        if destination not in host_ids:
+            raise ValueError(
+                f"Unknown destination host in trust relation: "
+                f"{destination}"
+            )
+
+    print("\nTrust relation validation successful!")
+    print(f"Validated trust relations: {len(trust_relations)}")
+
+
 def load_network(file_path):
     """Load and validate the basic JSON structure."""
 
@@ -249,6 +287,117 @@ def load_network(file_path):
 
     return data
 
+def validate_firewall_rules(data):
+    """Check that firewall rules reference valid zones, hosts and ports."""
+
+    network = data["network"]
+
+    zones = network["zones"]
+    hosts = network["hosts"]
+    firewall_rules = network["firewall_rules"]
+
+    zone_ids = {zone["id"] for zone in zones}
+    host_ids = {host["id"] for host in hosts}
+
+    for index, rule in enumerate(firewall_rules, start=1):
+
+        src_zone = rule.get("src_zone")
+        dst_zone = rule.get("dst_zone")
+        src_host = rule.get("src_host")
+        dst_host = rule.get("dst_host")
+        ports = rule.get("ports")
+        action = rule.get("action")
+
+        if src_zone not in zone_ids:
+            raise ValueError(
+                f"Firewall rule {index}: unknown source zone {src_zone}"
+            )
+
+        if dst_zone not in zone_ids:
+            raise ValueError(
+                f"Firewall rule {index}: unknown destination zone {dst_zone}"
+            )
+
+        if src_host != "*" and src_host not in host_ids:
+            raise ValueError(
+                f"Firewall rule {index}: unknown source host {src_host}"
+            )
+
+        if dst_host != "*" and dst_host not in host_ids:
+            raise ValueError(
+                f"Firewall rule {index}: unknown destination host {dst_host}"
+            )
+
+        if not isinstance(ports, list) or not ports:
+            raise ValueError(
+                f"Firewall rule {index}: ports must be a non-empty list"
+            )
+
+        for port in ports:
+            if not isinstance(port, int) or isinstance(port, bool) or not 1 <= port <= 65535:
+                raise ValueError(
+                    f"Firewall rule {index}: invalid port {port}"
+                )
+
+        if action not in {"allow", "deny"}:
+            raise ValueError(
+                f"Firewall rule {index}: invalid action {action}"
+            )
+
+    print("\nFirewall rules validation successful!")
+    print(f"Validated firewall rules: {len(firewall_rules)}")
+
+
+
+def build_network_model(data):
+    """Build dictionaries of zones, hosts and network connections."""
+
+    network = data["network"]
+
+    zones_by_id = {
+        zone["id"]: zone
+        for zone in network["zones"]
+    }
+
+    hosts_by_id = {
+        host["id"]: host
+        for host in network["hosts"]
+    }
+
+    model = {
+        "zones": zones_by_id,
+        "hosts": hosts_by_id,
+        "data_flows": network["data_flows"],
+        "trust_relations": network["trust_relations"],
+        "firewall_rules": network["firewall_rules"],
+    }
+
+    print("\nNetwork model built successfully!")
+    print(f"Zones in model: {len(model['zones'])}")
+    print(f"Hosts in model: {len(model['hosts'])}")
+    print(f"Data flows in model: {len(model['data_flows'])}")
+    print(f"Trust relations in model: {len(model['trust_relations'])}")
+    print(f"Firewall rules in model: {len(model['firewall_rules'])}")
+
+    return model
+
+
+def print_host_summary(model):
+    """Display a short summary of all network hosts."""
+
+    print("\n========== HOST SUMMARY ==========")
+
+    for host_id, host in model["hosts"].items():
+        print(
+            f"{host_id} | "
+            f"{host['name']} | "
+            f"Zone: {host['zone']} | "
+            f"OS: {host['os']} | "
+            f"Services: {len(host.get('services', []))} | "
+            f"Vulnerabilities: {len(host.get('vulnerabilities', []))}"
+        )
+
+    print("==================================")
 
 
 def main():
@@ -265,6 +414,22 @@ def main():
         validate_network_data(network)
         validate_network_connections(network)
         validate_data_flow_hosts(network)
+        validate_trust_relations(network)
+        validate_firewall_rules(network)
+
+        model = build_network_model(network)
+
+        print("\nFirst data flow:", model["data_flows"][0])
+        print("\nFirst trust relation:", model["trust_relations"][0])
+        print("\nFirst firewall rule:", model["firewall_rules"][0])
+
+        print("\nExample host:", model["hosts"]["H01"]["name"])
+        print("Example host zone:", model["hosts"]["H01"]["zone"])
+
+        print("\nFirst zone:", network["network"]["zones"][0])
+        print("\nFirst host:", network["network"]["hosts"][0])
+
+        print_host_summary(model)
 
         print("\n" + "=" * 40)
         print(" ACME RETAIL - NETWORK LOADER")
