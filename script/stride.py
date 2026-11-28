@@ -33,8 +33,24 @@ def load_network(file_path):
 
     return data
 
-def analyze_host_threats(network):
-    """Record vulnerabilities as security weaknesses to investigate."""
+def load_cve_classifications(file_path):
+    """Load manual STRIDE classifications from a CSV file."""
+
+    classifications = {}
+
+    with open(file_path, "r", encoding="utf-8") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            cve = row["CVE"].strip()
+            categories = row["STRIDE"].strip()
+
+            classifications[cve] = categories.split(";")
+
+    return classifications
+
+def analyze_host_threats(network, cve_classifications):
+    """Classify host vulnerabilities using the STRIDE CSV mapping."""
 
     threats = []
 
@@ -45,18 +61,24 @@ def analyze_host_threats(network):
             cve = vulnerability.get("cve", "Unknown CVE")
             service = vulnerability.get("service", "Unknown service")
 
-            threats.append({
-                "target": host_id,
-                "hostname": host_id,
-                "category": "TBD",
-                "category_name": "STRIDE classification pending",
-                "description": (
-                    f"{cve} affects the {service} service on {host_id}. "
-                    "The security impact must be verified before "
-                    "assigning a STRIDE category."
-                ),
-                "source": cve
-            })
+            categories = cve_classifications.get(cve, ["TBD"])
+
+            for category in categories:
+                category_name = STRIDE_CATEGORIES.get(
+                    category, "Classification pending"
+                )
+
+                threats.append({
+                    "target": host_id,
+                    "hostname": host_id,
+                    "category": category,
+                    "category_name": category_name,
+                    "description": (
+                        f"{cve} affects the {service} service on {host_id}. "
+                        f"Proposed STRIDE impact: {category_name}."
+                    ),
+                    "source": cve
+                })
 
     return threats
 
@@ -86,7 +108,7 @@ def analyze_data_flow_threats(network):
     return threats
 
 def analyze_trust_threats(network):
-    """Identify potential STRIDE threats related to trust relationships."""
+    """Identify potential abuse of trusted credentials and keys."""
 
     threats = []
 
@@ -96,6 +118,13 @@ def analyze_trust_threats(network):
         destination = relation.get("to_host", "Unknown")
         trust_type = relation.get("type", "Unknown")
         privilege = relation.get("grants", "Unknown")
+        requires = relation.get("requires")
+
+        precondition = (
+            f" The attacker must first obtain {requires}."
+            if requires
+            else f" The attacker must first compromise {source}."
+        )
 
         threats.append({
             "target": relation_id,
@@ -103,9 +132,10 @@ def analyze_trust_threats(network):
             "category": "S",
             "category_name": STRIDE_CATEGORIES["S"],
             "description": (
-                f"An attacker compromising {source} may abuse "
-                f"the {trust_type} relationship to access {destination} "
+                f"An attacker may abuse the {trust_type} relationship "
+                f"from {source} to authenticate to {destination} "
                 f"with {privilege} privileges."
+                f"{precondition}"
             ),
             "source": trust_type
         })
@@ -187,7 +217,11 @@ if __name__ == "__main__":
     print("Data flows:", len(network["data_flows"]))
     print("Trust relations:", len(network["trust_relations"]))
 
-    host_threats = analyze_host_threats(network)
+    cve_classifications = load_cve_classifications(
+        "output/stride_cve_classification.csv"
+    )
+
+    host_threats = analyze_host_threats(network, cve_classifications)
     flow_threats = analyze_data_flow_threats(network)
     trust_threats = analyze_trust_threats(network)
     misconfiguration_threats = analyze_misconfiguration_threats(network)

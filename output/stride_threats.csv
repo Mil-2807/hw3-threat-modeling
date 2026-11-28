@@ -1,39 +1,57 @@
 ﻿target,hostname,category,category_name,description,source
-H01,H01,TBD,STRIDE classification pending,CVE-2021-41773 affects the https service on H01. The security impact must be verified before assigning a STRIDE category.,CVE-2021-41773
-H03,H03,TBD,STRIDE classification pending,CVE-2021-26855 affects the https service on H03. The security impact must be verified before assigning a STRIDE category.,CVE-2021-26855
-H04,H04,TBD,STRIDE classification pending,CVE-2019-11510 affects the https service on H04. The security impact must be verified before assigning a STRIDE category.,CVE-2019-11510
-H05,H05,TBD,STRIDE classification pending,CVE-2011-2523 affects the ftp service on H05. The security impact must be verified before assigning a STRIDE category.,CVE-2011-2523
-H07,H07,TBD,STRIDE classification pending,CVE-2017-0144 affects the smb service on H07. The security impact must be verified before assigning a STRIDE category.,CVE-2017-0144
-H08,H08,TBD,STRIDE classification pending,CVE-2019-0708 affects the rdp service on H08. The security impact must be verified before assigning a STRIDE category.,CVE-2019-0708
-H09,H09,TBD,STRIDE classification pending,CVE-2021-4034 affects the polkit service on H09. The security impact must be verified before assigning a STRIDE category.,CVE-2021-4034
-H10,H10,TBD,STRIDE classification pending,CVE-2021-34527 affects the spooler service on H10. The security impact must be verified before assigning a STRIDE category.,CVE-2021-34527
-H11,H11,TBD,STRIDE classification pending,CVE-2021-3156 affects the sudo service on H11. The security impact must be verified before assigning a STRIDE category.,CVE-2021-3156
-H13,H13,TBD,STRIDE classification pending,CVE-2020-1472 affects the netlogon service on H13. The security impact must be verified before assigning a STRIDE category.,CVE-2020-1472
-H14,H14,TBD,STRIDE classification pending,CVE-2017-7494 affects the smb service on H14. The security impact must be verified before assigning a STRIDE category.,CVE-2017-7494
-H15,H15,TBD,STRIDE classification pending,CVE-2022-26134 affects the http service on H15. The security impact must be verified before assigning a STRIDE category.,CVE-2022-26134
-H16,H16,TBD,STRIDE classification pending,CVE-2021-22205 affects the https service on H16. The security impact must be verified before assigning a STRIDE category.,CVE-2021-22205
-H17,H17,TBD,STRIDE classification pending,CVE-2017-5638 affects the http service on H17. The security impact must be verified before assigning a STRIDE category.,CVE-2017-5638
-H18,H18,TBD,STRIDE classification pending,CVE-2022-0847 affects the kernel service on H18. The security impact must be verified before assigning a STRIDE category.,CVE-2022-0847
-H19,H19,TBD,STRIDE classification pending,CVE-2021-44228 affects the logstash service on H19. The security impact must be verified before assigning a STRIDE category.,CVE-2021-44228
-H20,H20,TBD,STRIDE classification pending,CVE-2012-2122 affects the mysql service on H20. The security impact must be verified before assigning a STRIDE category.,CVE-2012-2122
-H20,H20,TBD,STRIDE classification pending,CVE-2016-5195 affects the kernel service on H20. The security impact must be verified before assigning a STRIDE category.,CVE-2016-5195
-H21,H21,TBD,STRIDE classification pending,CVE-2021-4034 affects the polkit service on H21. The security impact must be verified before assigning a STRIDE category.,CVE-2021-4034
-H23,H23,TBD,STRIDE classification pending,CVE-2022-22965 affects the http service on H23. The security impact must be verified before assigning a STRIDE category.,CVE-2022-22965
-H24,H24,TBD,STRIDE classification pending,CVE-2018-7600 affects the http service on H24. The security impact must be verified before assigning a STRIDE category.,CVE-2018-7600
-H25,H25,TBD,STRIDE classification pending,CVE-2021-3156 affects the sudo service on H25. The security impact must be verified before assigning a STRIDE category.,CVE-2021-3156
-H26,H26,TBD,STRIDE classification pending,CVE-2018-15473 affects the ssh service on H26. The security impact must be verified before assigning a STRIDE category.,CVE-2018-15473
-H27,H27,TBD,STRIDE classification pending,CVE-2021-43798 affects the http service on H27. The security impact must be verified before assigning a STRIDE category.,CVE-2021-43798
+H01,H01,I,Information Disclosure,CVE-2021-41773 affects the https service on H01. Proposed STRIDE impact: Information Disclosure.,CVE-2021-41773
+H01,H01,E,Elevation of Privilege,CVE-2021-41773 affects the https service on H01. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-41773
+H01,H01,T,Tampering,CVE-2021-41773 affects the https service on H01. Proposed STRIDE impact: Tampering.,CVE-2021-41773
+H03,H03,S,Spoofing,CVE-2021-26855 affects the https service on H03. Proposed STRIDE impact: Spoofing.,CVE-2021-26855
+H03,H03,I,Information Disclosure,CVE-2021-26855 affects the https service on H03. Proposed STRIDE impact: Information Disclosure.,CVE-2021-26855
+H04,H04,I,Information Disclosure,CVE-2019-11510 affects the https service on H04. Proposed STRIDE impact: Information Disclosure.,CVE-2019-11510
+H05,H05,E,Elevation of Privilege,CVE-2011-2523 affects the ftp service on H05. Proposed STRIDE impact: Elevation of Privilege.,CVE-2011-2523
+H05,H05,T,Tampering,CVE-2011-2523 affects the ftp service on H05. Proposed STRIDE impact: Tampering.,CVE-2011-2523
+H07,H07,E,Elevation of Privilege,CVE-2017-0144 affects the smb service on H07. Proposed STRIDE impact: Elevation of Privilege.,CVE-2017-0144
+H07,H07,T,Tampering,CVE-2017-0144 affects the smb service on H07. Proposed STRIDE impact: Tampering.,CVE-2017-0144
+H08,H08,E,Elevation of Privilege,CVE-2019-0708 affects the rdp service on H08. Proposed STRIDE impact: Elevation of Privilege.,CVE-2019-0708
+H08,H08,T,Tampering,CVE-2019-0708 affects the rdp service on H08. Proposed STRIDE impact: Tampering.,CVE-2019-0708
+H09,H09,E,Elevation of Privilege,CVE-2021-4034 affects the polkit service on H09. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-4034
+H10,H10,E,Elevation of Privilege,CVE-2021-34527 affects the spooler service on H10. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-34527
+H10,H10,T,Tampering,CVE-2021-34527 affects the spooler service on H10. Proposed STRIDE impact: Tampering.,CVE-2021-34527
+H11,H11,E,Elevation of Privilege,CVE-2021-3156 affects the sudo service on H11. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-3156
+H13,H13,E,Elevation of Privilege,CVE-2020-1472 affects the netlogon service on H13. Proposed STRIDE impact: Elevation of Privilege.,CVE-2020-1472
+H14,H14,E,Elevation of Privilege,CVE-2017-7494 affects the smb service on H14. Proposed STRIDE impact: Elevation of Privilege.,CVE-2017-7494
+H14,H14,T,Tampering,CVE-2017-7494 affects the smb service on H14. Proposed STRIDE impact: Tampering.,CVE-2017-7494
+H15,H15,E,Elevation of Privilege,CVE-2022-26134 affects the http service on H15. Proposed STRIDE impact: Elevation of Privilege.,CVE-2022-26134
+H15,H15,T,Tampering,CVE-2022-26134 affects the http service on H15. Proposed STRIDE impact: Tampering.,CVE-2022-26134
+H15,H15,I,Information Disclosure,CVE-2022-26134 affects the http service on H15. Proposed STRIDE impact: Information Disclosure.,CVE-2022-26134
+H16,H16,E,Elevation of Privilege,CVE-2021-22205 affects the https service on H16. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-22205
+H16,H16,T,Tampering,CVE-2021-22205 affects the https service on H16. Proposed STRIDE impact: Tampering.,CVE-2021-22205
+H17,H17,E,Elevation of Privilege,CVE-2017-5638 affects the http service on H17. Proposed STRIDE impact: Elevation of Privilege.,CVE-2017-5638
+H17,H17,T,Tampering,CVE-2017-5638 affects the http service on H17. Proposed STRIDE impact: Tampering.,CVE-2017-5638
+H18,H18,T,Tampering,CVE-2022-0847 affects the kernel service on H18. Proposed STRIDE impact: Tampering.,CVE-2022-0847
+H18,H18,E,Elevation of Privilege,CVE-2022-0847 affects the kernel service on H18. Proposed STRIDE impact: Elevation of Privilege.,CVE-2022-0847
+H19,H19,E,Elevation of Privilege,CVE-2021-44228 affects the logstash service on H19. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-44228
+H19,H19,T,Tampering,CVE-2021-44228 affects the logstash service on H19. Proposed STRIDE impact: Tampering.,CVE-2021-44228
+H19,H19,I,Information Disclosure,CVE-2021-44228 affects the logstash service on H19. Proposed STRIDE impact: Information Disclosure.,CVE-2021-44228
+H20,H20,S,Spoofing,CVE-2012-2122 affects the mysql service on H20. Proposed STRIDE impact: Spoofing.,CVE-2012-2122
+H20,H20,E,Elevation of Privilege,CVE-2016-5195 affects the kernel service on H20. Proposed STRIDE impact: Elevation of Privilege.,CVE-2016-5195
+H20,H20,T,Tampering,CVE-2016-5195 affects the kernel service on H20. Proposed STRIDE impact: Tampering.,CVE-2016-5195
+H21,H21,E,Elevation of Privilege,CVE-2021-4034 affects the polkit service on H21. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-4034
+H23,H23,E,Elevation of Privilege,CVE-2022-22965 affects the http service on H23. Proposed STRIDE impact: Elevation of Privilege.,CVE-2022-22965
+H23,H23,T,Tampering,CVE-2022-22965 affects the http service on H23. Proposed STRIDE impact: Tampering.,CVE-2022-22965
+H24,H24,E,Elevation of Privilege,CVE-2018-7600 affects the http service on H24. Proposed STRIDE impact: Elevation of Privilege.,CVE-2018-7600
+H24,H24,T,Tampering,CVE-2018-7600 affects the http service on H24. Proposed STRIDE impact: Tampering.,CVE-2018-7600
+H25,H25,E,Elevation of Privilege,CVE-2021-3156 affects the sudo service on H25. Proposed STRIDE impact: Elevation of Privilege.,CVE-2021-3156
+H26,H26,I,Information Disclosure,CVE-2018-15473 affects the ssh service on H26. Proposed STRIDE impact: Information Disclosure.,CVE-2018-15473
+H27,H27,I,Information Disclosure,CVE-2021-43798 affects the http service on H27. Proposed STRIDE impact: Information Disclosure.,CVE-2021-43798
 F2,H01 -> H17,I,Information Disclosure,Data transmitted using HTTP may be intercepted.,HTTP
 F8,ext-partner -> H05,I,Information Disclosure,Data transmitted using FTP may be intercepted.,FTP
 F10,H19 -> H27,I,Information Disclosure,Data transmitted using HTTP may be intercepted.,HTTP
-T1,H26 -> H18,S,Spoofing,An attacker compromising H26 may abuse the ssh-key relationship to access H18 with user privileges.,ssh-key
-T2,H26 -> H20,S,Spoofing,An attacker compromising H26 may abuse the ssh-key relationship to access H20 with user privileges.,ssh-key
-T3,H18 -> H21,S,Spoofing,An attacker compromising H18 may abuse the backup-agent-credentials relationship to access H21 with user privileges.,backup-agent-credentials
-T4,H16 -> H17,S,Spoofing,An attacker compromising H16 may abuse the ci-deploy-key relationship to access H17 with user privileges.,ci-deploy-key
-T5,H25 -> H16,S,Spoofing,An attacker compromising H25 may abuse the runner-token relationship to access H16 with user privileges.,runner-token
-T6,H11 -> H13,S,Spoofing,An attacker compromising H11 may abuse the cached-domain-admin-credentials relationship to access H13 with root privileges.,cached-domain-admin-credentials
-T7,H13 -> H14,S,Spoofing,An attacker compromising H13 may abuse the domain-admin relationship to access H14 with root privileges.,domain-admin
-T8,H13 -> H26,S,Spoofing,An attacker compromising H13 may abuse the domain-admin relationship to access H26 with root privileges.,domain-admin
-T9,H17 -> H20,S,Spoofing,An attacker compromising H17 may abuse the db-credentials-in-config relationship to access H20 with user privileges.,db-credentials-in-config
+T1,H26 -> H18,S,Spoofing,An attacker may abuse the ssh-key relationship from H26 to authenticate to H18 with user privileges. The attacker must first compromise H26.,ssh-key
+T2,H26 -> H20,S,Spoofing,An attacker may abuse the ssh-key relationship from H26 to authenticate to H20 with user privileges. The attacker must first compromise H26.,ssh-key
+T3,H18 -> H21,S,Spoofing,An attacker may abuse the backup-agent-credentials relationship from H18 to authenticate to H21 with user privileges. The attacker must first compromise H18.,backup-agent-credentials
+T4,H16 -> H17,S,Spoofing,An attacker may abuse the ci-deploy-key relationship from H16 to authenticate to H17 with user privileges. The attacker must first compromise H16.,ci-deploy-key
+T5,H25 -> H16,S,Spoofing,An attacker may abuse the runner-token relationship from H25 to authenticate to H16 with user privileges. The attacker must first compromise H25.,runner-token
+T6,H11 -> H13,S,Spoofing,An attacker may abuse the cached-domain-admin-credentials relationship from H11 to authenticate to H13 with root privileges. The attacker must first obtain root on source.,cached-domain-admin-credentials
+T7,H13 -> H14,S,Spoofing,An attacker may abuse the domain-admin relationship from H13 to authenticate to H14 with root privileges. The attacker must first obtain root on source.,domain-admin
+T8,H13 -> H26,S,Spoofing,An attacker may abuse the domain-admin relationship from H13 to authenticate to H26 with root privileges. The attacker must first obtain root on source.,domain-admin
+T9,H17 -> H20,S,Spoofing,An attacker may abuse the db-credentials-in-config relationship from H17 to authenticate to H20 with user privileges. The attacker must first obtain user on source.,db-credentials-in-config
 H12,H12,S,Spoofing,Default administrator credentials on web UI. An attacker may use default credentials to impersonate an authorized user.,MC1
 H26,H26,S,Spoofing,"SSH password authentication enabled, no lockout. An attacker may perform repeated password attempts to impersonate the SSH user.",MC2
