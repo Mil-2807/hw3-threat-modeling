@@ -1,0 +1,23 @@
+﻿CVE,Hosts,CWE,CAPEC,ATTACK_Technique,ATTACK_Tactic,STRIDE,Mapping_Status,Sources
+CVE-2011-2523,H05,CWE-78,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2011-2523
+CVE-2012-2122,H20,CWE-287,Unmapped,Unmapped,Unmapped,S,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2012-2122
+CVE-2016-5195,H20,CWE-362,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2016-5195
+CVE-2017-0144,H07,Unknown,Unmapped,Unmapped,Unmapped,E;T,CWE unavailable; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2017-0144
+CVE-2017-5638,H17,CWE-755,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2017-5638
+CVE-2017-7494,H14,CWE-94,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2017-7494
+CVE-2018-15473,H26,CWE-362,Unmapped,Unmapped,Unmapped,I,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2018-15473
+CVE-2018-7600,H24,CWE-20,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2018-7600
+CVE-2019-0708,H08,CWE-416,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2019-0708
+CVE-2019-11510,H04,CWE-22,CAPEC-126,T1083;T1552.001;T1059;T1133,Discovery;Credential Access;Execution;Initial Access;Persistence,I,"CWE, CAPEC and ATT&CK mapped (ATT&CK v15.1)",https://nvd.nist.gov/vuln/detail/CVE-2019-11510; https://capec.mitre.org/data/definitions/126.html
+CVE-2020-1472,H13,Unknown,Unmapped,Unmapped,Unmapped,E,CWE unavailable; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2020-1472
+CVE-2021-22205,H16,CWE-94,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2021-22205
+CVE-2021-26855,H03,CWE-918,Unmapped,Unmapped,Unmapped,S;I,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2021-26855
+CVE-2021-3156,H11;H25,CWE-193,Unmapped,Unmapped,Unmapped,E,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2021-3156
+CVE-2021-34527,H10,Unknown,Unmapped,Unmapped,Unmapped,E;T,CWE unavailable; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2021-34527
+CVE-2021-4034,H09;H21,CWE-125;CWE-787,Unmapped,Unmapped,Unmapped,E,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2021-4034
+CVE-2021-41773,H01,CWE-22,CAPEC-126,T1059;T1210,Execution;Lateral Movement,I;E;T,"CWE, CAPEC and ATT&CK mapped (ATT&CK v15.1)",https://nvd.nist.gov/vuln/detail/CVE-2021-41773; https://capec.mitre.org/data/definitions/126.html
+CVE-2021-43798,H27,CWE-22,CAPEC-126,Unmapped,Unmapped,I,CWE and CAPEC mapped; ATT&CK unmapped,https://nvd.nist.gov/vuln/detail/CVE-2021-43798; https://capec.mitre.org/data/definitions/126.html
+CVE-2021-44228,H19,CWE-20;CWE-400;CWE-502;CWE-917,Unmapped,Unmapped,Unmapped,E;T;I,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+CVE-2022-0847,H18,CWE-665,Unmapped,Unmapped,Unmapped,T;E,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2022-0847
+CVE-2022-22965,H23,CWE-94,Unmapped,Unmapped,Unmapped,E;T,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2022-22965
+CVE-2022-26134,H15,CWE-917,Unmapped,Unmapped,Unmapped,E;T;I,CWE found; CAPEC and ATT&CK pending,https://nvd.nist.gov/vuln/detail/CVE-2022-26134
